@@ -1,5 +1,6 @@
 import React, { useReducer, useState } from "react";
 import { reducer, initialState } from "../reducer/ReducerTodo";
+import CardDisplay from "./CardDisplay";
 
 const TodoForm = () => {
   //reducer state
@@ -7,6 +8,9 @@ const TodoForm = () => {
 
   //local state
   const [theTodo, setTheTodo] = useState("");
+
+  //toggle completed Todo's
+  const toggleCompleted = (id) => {};
 
   //handle changes
   const handleChanges = (event) => {
@@ -16,34 +20,34 @@ const TodoForm = () => {
   //handle submit
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch({ type: "ADD_TODO", payload: theTodo });
+    setTheTodo("");
   };
 
   return (
-    <div>
-      {/* Form starts here */}
-      <form onSubmit={handleSubmit}>
-        <label>
-          Todo:
-          <input
-            name="todo"
-            placeholder="Enter a task for today here."
-            onChange={handleChanges}
-            value={theTodo}
-          />
-        </label>
+    <>
+      <div>
+        {/* Form Starts Here */}
+        <form onSubmit={handleSubmit}>
+          <label>
+            Todo:
+            <input
+              name="todo"
+              placeholder="Enter a task for today here."
+              onChange={handleChanges}
+              value={theTodo}
+            />
+          </label>
 
-        <button type="submit">+Add Todo</button>
-      </form>
-      {/* Form ends here */}
-      <button
-        type="button"
-        onClick={() => {
-          console.log("test");
-        }}
-      >
-        -Clear Completed
-      </button>
-    </div>
+          <button type="submit">+Add Todo</button>
+        </form>
+        {/* Form Ends Here */}
+        <button onClick={() => dispatch({ type: "REMOVE_TODO" })}>
+          -Clear Completed
+        </button>
+      </div>
+      <CardDisplay initialState={state} />
+    </>
   );
 };
 

@@ -1,10 +1,15 @@
 import React from "react";
 
-const CardDisplay = () => {
+const CardDisplay = (props) => {
   return (
     <div>
-      {/* map through data here */}
-      <p></p>
+      {props.initialState.map((each) => {
+        return (
+          <div key={each.id}>
+            <h2>{each.item}</h2>
+          </div>
+        );
+      })}
     </div>
   );
 };
