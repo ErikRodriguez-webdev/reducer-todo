@@ -5,7 +5,16 @@ const CardDisplay = (props) => {
     <div>
       {props.initialState.map((each) => {
         return (
-          <div key={each.id}>
+          <div
+            key={each.id}
+            className={
+              props.initialState.completed === false ? "todo" : "todo completed"
+            }
+            onClick={() => {
+              props.initialState.completed = !props.initialState.completed;
+              props.dispatch({ type: "TOGGLE_COMPLETED" });
+            }}
+          >
             <h2>{each.item}</h2>
           </div>
         );

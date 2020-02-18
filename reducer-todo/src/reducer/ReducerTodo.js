@@ -6,6 +6,7 @@ export const initialState = [
 //Actions
 const ADD_TODO = "ADD_TODO";
 const REMOVE_TODO = "REMOVE_TODO";
+const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 
 //Reducer
 export const reducer = (state, action) => {
@@ -15,8 +16,8 @@ export const reducer = (state, action) => {
         ...state,
         { item: action.payload, completed: false, id: Date.now() }
       ];
-    case "REMOVE_TODO":
-      return [state.filter(false)];
+    case "TOGGLE_COMPLETED":
+      return { ...state };
     default:
       return state;
   }

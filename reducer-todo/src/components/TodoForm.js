@@ -10,7 +10,11 @@ const TodoForm = () => {
   const [theTodo, setTheTodo] = useState("");
 
   //toggle completed Todo's
-  const toggleCompleted = (id) => {};
+  // const toggleCompleted = () => {
+  //   const aCopyofState = [...state].map((each) => {
+  //     state.completed === false ? "todo" : "todo completed";
+  //   });
+  // };
 
   //handle changes
   const handleChanges = (event) => {
@@ -46,7 +50,7 @@ const TodoForm = () => {
           -Clear Completed
         </button>
       </div>
-      <CardDisplay initialState={state} />
+      <CardDisplay initialState={state} dispatch={dispatch} />
     </>
   );
 };
