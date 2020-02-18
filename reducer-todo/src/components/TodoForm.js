@@ -1,14 +1,12 @@
 import React, { useReducer, useState } from "react";
-import { reducer, allTodos } from "../reducer/ReducerTodo";
+import { reducer, initialState } from "../reducer/ReducerTodo";
 
 const TodoForm = () => {
   //reducer state
-  const [state, dispatch] = useReducer(reducer, allTodos);
-  console.log(state);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   //local state
   const [theTodo, setTheTodo] = useState("");
-  console.log(theTodo);
 
   //handle changes
   const handleChanges = (event) => {

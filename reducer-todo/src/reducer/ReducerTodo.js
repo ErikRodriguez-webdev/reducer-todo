@@ -1,16 +1,22 @@
 //Initial State
-export const allTodos = {
-  item: "Learn about reducers",
-  completed: false,
-  id: 1
+export const initialState = {
+    allTodos: {}
 };
 
 //Actions
-export const addTodo = () => {};
+export const addTodo = {
+    type: 'ADD_TODO',
+    payload: {
+        item: theTodo,
+        completed: false, 
+        id: Date.now() }
+};
 
 //Reducer
 export const reducer = (state, action) => {
   switch (action.type) {
+      case 'ADD_TODO' :
+          return { ...state, action.payload}
     default:
       return state;
   }
