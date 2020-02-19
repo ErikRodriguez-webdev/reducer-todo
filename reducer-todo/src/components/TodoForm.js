@@ -10,11 +10,13 @@ const TodoForm = () => {
   const [theTodo, setTheTodo] = useState("");
 
   //toggle completed Todo's
-  // const toggleCompleted = () => {
-  //   const aCopyofState = [...state].map((each) => {
-  //     state.completed === false ? "todo" : "todo completed";
-  //   });
-  // };
+  const toggleCompleted = (clickedID) => {
+    const aCopyofState = [...state].map((each) => {
+      if (each.id === clickedID) {
+        return [...aCopyofState];
+      }
+    });
+  };
 
   //handle changes
   const handleChanges = (event) => {
